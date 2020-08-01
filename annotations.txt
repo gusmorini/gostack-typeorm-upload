@@ -1,1 +1,20 @@
-anotações
+# anotações
+
+* arquivo csv: “CSV” significa Comma Separated Values,
+  ou seja, um arquivo CSV é um arquivo de valores separados por vírgula.
+  Esse formato de armazenamento é simples e agrupa informações de arquivos
+  de texto em planilhas, usado para trocas de dados com um banco de dados ou
+  uma planilha entre aplicativos.
+
+* banco de dados gostack_desafio06_tests, gostack_desafio06
+
+* na criação da transaction este campo representa um valor decimal, sendo:
+  precision limita quantidade casas decimais
+  scale quantidade de casas depois do ponto a direita ex: 1000.00
+
+{
+  name: 'value',
+  type: 'decimal',
+  precision: 10,
+  scale: 2,
+}
