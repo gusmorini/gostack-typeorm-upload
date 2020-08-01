@@ -29,6 +29,9 @@ class Transaction {
   // referencia do nome do campo na tabela
   @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
+  category: Category;
+
+  @Column()
   category_id: string;
 
   @CreateDateColumn()
