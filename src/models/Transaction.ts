@@ -15,11 +15,11 @@ class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  // valor padrão é string poderia ser @Column()
-  @Column('string')
+  // valor padrão é varchar por isso vazio @Column()
+  @Column()
   title: string;
 
-  @Column('string')
+  @Column()
   type: 'income' | 'outcome';
 
   @Column('decimal')
