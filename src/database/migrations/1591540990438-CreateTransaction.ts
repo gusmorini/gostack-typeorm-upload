@@ -2,7 +2,7 @@ import {
   MigrationInterface,
   QueryRunner,
   Table,
-  TableForeignKey,
+  // TableForeignKey,
 } from 'typeorm';
 
 export default class CreateTransaction1591540990438
@@ -28,9 +28,10 @@ export default class CreateTransaction1591540990438
             type: 'varchar',
           },
           {
-            name: 'category_id',
-            type: 'uuid',
-            isNullable: true,
+            name: 'value',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'created_at',
@@ -45,26 +46,9 @@ export default class CreateTransaction1591540990438
         ],
       }),
     );
-
-    await queryRunner.createForeignKey(
-      'transactions',
-      new TableForeignKey({
-        name: 'FK_category_id',
-        columnNames: ['category_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'category',
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('transactions', 'FK_category_id');
     await queryRunner.dropTable('transactions');
   }
 }
-
-/**
- * id, title, value, type, category_id, created_at, updated_at
- */
